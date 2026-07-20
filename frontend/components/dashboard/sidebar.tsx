@@ -1,0 +1,6 @@
+import Link from "next/link";
+import { BarChart3, Compass, Lightbulb, Map, Settings, Sparkles } from "lucide-react";
+
+const items = [[Compass, "Command center", "/dashboard"], [Map, "Global signals", "#"], [Lightbulb, "Opportunities", "#"], [BarChart3, "Intelligence", "#"]] as const;
+
+export function Sidebar() { return <aside className="hidden w-64 shrink-0 border-r border-slate-800 bg-slate-950 p-5 lg:flex lg:flex-col"><Link href="/dashboard" className="flex items-center gap-2 text-xl font-semibold tracking-tight"><span className="grid h-8 w-8 place-items-center rounded-lg bg-emerald-400 text-slate-950"><Sparkles size={17}/></span> FORGE<span className="text-emerald-400">AI</span></Link><nav className="mt-12 space-y-1">{items.map(([Icon, label, href], index) => <Link key={label} href={href} className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${index === 0 ? "bg-emerald-400/10 text-emerald-300" : "text-slate-400 hover:bg-slate-900 hover:text-slate-100"}`}><Icon size={18}/>{label}</Link>)}</nav><div className="mt-auto"><Link href="#" className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-slate-400 hover:bg-slate-900"><Settings size={18}/>Settings</Link><div className="mt-5 border-t border-slate-800 pt-5 text-xs text-slate-500">ForgeAI · Phase 1</div></div></aside>; }

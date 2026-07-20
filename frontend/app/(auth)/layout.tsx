@@ -1,0 +1,5 @@
+import Link from "next/link";
+
+export default function AuthLayout({ children }: { children: React.ReactNode }) {
+  return <main className="grid min-h-screen lg:grid-cols-2"><section className="hidden flex-col justify-between border-r border-slate-800 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-emerald-950 via-slate-950 to-slate-950 p-12 lg:flex"><Link href="/" className="text-xl font-semibold tracking-tight">FORGE<span className="text-emerald-400">AI</span></Link><div><p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-emerald-400">Engineering intelligence</p><h1 className="max-w-lg text-5xl font-semibold leading-tight">Build what the world needs next.</h1><p className="mt-6 max-w-md text-lg leading-8 text-slate-400">ForgeAI helps engineering teams turn global challenges into meaningful opportunities.</p></div><p className="text-sm text-slate-500">Phase 1 · Build Week 2026</p></section><section className="flex items-center justify-center px-6 py-12"><div className="w-full max-w-md">{children}</div></section></main>;
+}
