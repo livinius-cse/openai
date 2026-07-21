@@ -4,6 +4,21 @@ ForgeAI turns real-world problems into engineering opportunities. This repositor
 
 > AI analysis and news ingestion are intentionally out of scope for Phase 1.
 
+## Live news ingestion (Phase 3)
+
+The backend collects and normalizes engineering-relevant news from NewsAPI, GDELT, and ReliefWeb every 10 minutes. It stores deduplicated articles in PostgreSQL and never invokes GPT.
+
+1. Copy `backend/.env.example` to `backend/.env`.
+2. Set `NEWSAPI_KEY` to enable NewsAPI. GDELT and ReliefWeb require no key.
+3. Start the backend (or the Docker Compose environment). The scheduler begins automatically at API startup.
+
+Swagger UI is available at [http://localhost:8000/docs](http://localhost:8000/docs). Live data endpoints are:
+
+- `GET /news`
+- `GET /news/latest`
+- `GET /news/search?q=grid`
+- `GET /news/category/{category}`
+
 ## Stack
 
 - Frontend: Next.js 15, TypeScript, Tailwind CSS, shadcn-style UI primitives
